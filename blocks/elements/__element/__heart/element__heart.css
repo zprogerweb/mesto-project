@@ -1,0 +1,16 @@
+.element__heart {
+    margin: 0;
+    cursor: pointer;
+}
+
+.element__heart:disabled {
+    color: #000;
+}
+
+.element__heart:hover {
+    opacity: 0.5;
+}
+
+.element__heart:active {
+    background-image: url(../../../../images/active_heart.svg);
+}

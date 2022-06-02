@@ -1,0 +1,11 @@
+.profile__left-section {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 640px) {
+    .profile__left-section {
+        flex-direction: column;
+        margin-bottom: 36px;
+    }
+}

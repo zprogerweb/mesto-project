@@ -1,0 +1,6 @@
+.elements__element {
+    margin: 0;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 5px 5px 0 0;
+}
