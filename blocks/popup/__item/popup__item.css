@@ -1,0 +1,14 @@
+.popup__item {
+    width: 358px;
+    border: none;
+}
+
+.popup__item:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 530px) {
+    .popup__item {
+        width: 238px;
+    }
+}
