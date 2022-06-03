@@ -2,7 +2,7 @@
 
 В проекте применяется технология БЭМ
 
-Ссылка на github pages -
+Ссылка на github pages - https://zprogerweb.github.io/mesto-project/
 
 **Figma**
 
