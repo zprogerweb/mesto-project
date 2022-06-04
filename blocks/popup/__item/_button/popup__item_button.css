@@ -1,5 +1,5 @@
 .popup__item_button {
-    padding: 14px 124px 18px 125px;
+    padding: 14px 124px 14px 125px;
     background-color: #000;
     color: #fff;
     border-radius: 2px;
@@ -7,7 +7,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    margin: 48px 36px 37px;
+    margin: 48px 36px 37px 0;
 }
 
 .popup__item_button:hover {
@@ -15,8 +15,12 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 700px) {
     .popup__item_button {
+        font-size: 14px;
+        line-height: 17px;
         padding: 14px 82px;
+        margin: 45px 22px 25px 0;
+
     }
 }
