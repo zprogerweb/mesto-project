@@ -84,16 +84,15 @@
         </footer>
         <section class="popup popup_opened">
             
-            <form class="popup__container">
-                <img src="./images/Close_Icon.svg" alt="Иконка закрытия" class="popup__close-icone">
+            <div class="popup__container">
+                <button type="type" class="popup__close-icone"><img src="./images/Close_Icon.svg" class="popup__close-icone-image" alt="Иконка закрытия" ></button>
                 <h3 class="popup__heading">Редактировать профиль</h3>
-                <input type="text" class="popup__item popup__item_name" placeholder="Жак-Ив Кусто">
-                <div class="popup__line"></div>
-                <input type="text" class="popup__item popup__item_prof" placeholder="Исследователь океана">
-                <div class="popup__line"></div>
-                <button type="type" class="popup__item popup__item_button">Сохранить</button>
-                 
-            </form>
+                <form name="profile" action="">
+                    <input type="text" name="name" class="popup__field popup__field_type_name" placeholder="Жак-Ив Кусто">
+                    <input type="text" name="about" class="popup__field popup__field_type_about" placeholder="Исследователь океана">
+                    <button type="type" class="popup__submit-button">Сохранить</button>
+                </form>
+            </div>
         </section>
     </div>
 </body>
