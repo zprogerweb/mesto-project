@@ -20,12 +20,12 @@
                     <div class="profile__info">
                         <div class="profile__name">
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
-                            <input type="image" src="./images/edit_button.svg" alt="Карандаш" class="profile__edit-button">
+                            <button type="button" class="profile__edit-button"></button>                               
                         </div>
                         <p class="profile__subtitle">Исследователь океана</p>
                     </div>
                 </div>
-                <button type="image" class="profile__add-button"><img src="./images/plus.svg" alt="Кнопка"></button>
+                <button type="button" class="profile__add-button"></button>
             </section>
             
             <section class="elements">
@@ -33,7 +33,7 @@
                     <img src="./images/Карачаевск.jpg" alt="Карачаевск" class="element__image">
                     <div class="element__group">
                         <h3 class="element__title">Карачаевск</h3>
-                        <img src="./images/Vector_Stroke.svg" alt="Сердце" class="element__heart">
+                        <button type="button" class="element__heart">
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@
                     <img src="./images/Гора_Эльбрус.png" alt="Гора Эльбрус" class="element__image">
                     <div class="element__group">
                         <h3 class="element__title">Гора Эльбрус</h3>
-                        <img src="./images/Vector_Stroke.svg" alt="Сердце" class="element__heart">
+                        <button type="button" class="element__heart">
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
                     <img src="./images/Домбай.png" alt="Домбай" class="element__image">
                     <div class="element__group">
                         <h3 class="element__title">Домбай</h3>
-                        <img src="./images/Vector_Stroke.svg" alt="Сердце" class="element__heart">
+                        <button type="button" class="element__heart">
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                     <img src="./images/Гора_Эльбрус.png" alt="Гора Эльбрус" class="element__image">
                     <div class="element__group">
                         <h3 class="element__title">Гора Эльбрус</h3>
-                        <img src="./images/Vector_Stroke.svg" alt="Сердце" class="element__heart">
+                        <button type="button" class="element__heart">
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@
                     <img src="./images/Домбай.png" alt="Домбай" class="element__image">
                     <div class="element__group">
                         <h3 class="element__title">Домбай</h3>
-                        <img src="./images/Vector_Stroke.svg" alt="Сердце" class="element__heart">
+                        <button type="button" class="element__heart">
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                     <img src="./images/Карачаевск.jpg" alt="Карачаево-Черкесия" class="element__image">
                     <div class="element__group">
                         <h3 class="element__title">Карачаево-Черкесия</h3>
-                        <img src="./images/Vector_Stroke.svg" alt="Сердце" class="element__heart">
+                        <button type="button" class="element__heart">
                     </div>
                 </div>
             </section>
@@ -82,18 +82,17 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
-        <section class="popup popup_opened">
-            
+        <div class="popup">
             <div class="popup__container">
-                <button type="type" class="popup__close-icone"><img src="./images/Close_Icon.svg" class="popup__close-icone-image" alt="Иконка закрытия" ></button>
+                <button type="button" class="popup__close-icone"></button>
                 <h3 class="popup__heading">Редактировать профиль</h3>
-                <form name="profile" action="">
+                <form name="profile" action="" class="popup__form">
                     <input type="text" name="name" class="popup__field popup__field_type_name" placeholder="Жак-Ив Кусто">
                     <input type="text" name="about" class="popup__field popup__field_type_about" placeholder="Исследователь океана">
-                    <button type="type" class="popup__submit-button">Сохранить</button>
+                    <button type="submit" class="popup__submit-button">Сохранить</button>
                 </form>
             </div>
-        </section>
+        </div>
     </div>
 </body>
 </html>
