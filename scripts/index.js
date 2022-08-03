@@ -1,17 +1,44 @@
-
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+  ];
 
 //Кнопка редактирования профиля
-const editButton = document.querySelector('.profile__edit-button');
-const closeIconProfile = document.querySelector('.popup__close-icone_profile');
+const buttonEditProfile = document.querySelector('.profile__edit-button');
+const iconCloseProfile = document.querySelector('.popup__close-icone_profile');
 const formProfile = document.querySelector('.popup__form_profile');
 const popupProfile = document.querySelector('.popup_profile');
 
 
-editButton.addEventListener('click', function() {
+buttonEditProfile.addEventListener('click', function() {
     popupProfile.classList.add('popup_opened');
+    nameInput.value = profileTitle.textContent;
+    jobInput.value = profileSubtitle.textContent;
 });
 
-closeIconProfile.addEventListener('click', function() {
+iconCloseProfile.addEventListener('click', function() {
     popupProfile.classList.remove('popup_opened');
 });
 
@@ -19,60 +46,40 @@ const nameInput = formProfile.querySelector('.popup__field_type_name');
 const jobInput = formProfile.querySelector('.popup__field_type_about');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
-const submitProfile = formProfile.querySelector('.popup__submit-button');
+const ProfileSubmitButton = formProfile.querySelector('.popup__submit-button');
 
-function formSubmitProfile (evt) {
+function submitFormProfile (evt) {
     evt.preventDefault(); 
 
     profileTitle.textContent = `${nameInput.value}`;
     profileSubtitle.textContent = `${jobInput.value}`;
     popupProfile.classList.remove('popup_opened');
 }
-formProfile.addEventListener('submit', formSubmitProfile);
+formProfile.addEventListener('submit', submitFormProfile);
 
 
 // Кнопка добавления карточки
-const elements = document.querySelector('.elements');
-const addButton = document.querySelector('.profile__add-button');
-const closeIconElement = document.querySelector('.popup__close-icone_element');
+const elementContainer = document.querySelector('.elements');
+const cardAddButton = document.querySelector('.profile__add-button');
+const iconCloseElement = document.querySelector('.popup__close-icone_element');
 const popupElement = document.querySelector('.popup_element');
 const formElement = document.querySelector('.popup__form_element');
-const submitElement = formElement.querySelector('.popup__submit-button');
+const elementSubmitButton = formElement.querySelector('.popup__submit-button');
+// Попап картинки
+const imageCardPopup = document.querySelector('.image-card');
+const imageCardItem = imageCardPopup.querySelector('.image-card__item');
+const popupImage = imageCardItem.querySelector('.image-card__image');
+const popupCaption = imageCardItem.querySelector('.image-card__caption');
+const iconCloseImage = imageCardItem.querySelector('.popup__close-icone_image');
+const elementImage = elementContainer.querySelector('.element__image');
 
 
 
-
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-    ];
-
+// Создаем карточки из массива
 for (let i = 0; i < initialCards.length; i++) {
-  let cardName = initialCards[i].name;
-  let cardLink = initialCards[i].link;
-  let card = createCard(cardName, cardLink);
+  const cardName = initialCards[i].name;
+  const cardLink = initialCards[i].link;
+  const card = createCard(cardName, cardLink);
   renderCard(card);
       
   }
@@ -80,9 +87,11 @@ for (let i = 0; i < initialCards.length; i++) {
 function createCard(cardName, cardLink) {
   const cardTemplate = document.querySelector('#elements-template').content;
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-  
+  const elementImage = cardElement.querySelector('.element__image');
+
   cardElement.querySelector('.element__title').textContent = cardName;
-  cardElement.querySelector('.element__image').src = cardLink;
+  elementImage.src = cardLink;
+  elementImage.alt = cardName;
 
   cardElement.querySelector('.element__heart').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__heart_active');
@@ -93,7 +102,7 @@ function createCard(cardName, cardLink) {
   const elementItem = deleteButton.closest('.element');
   elementItem.remove();
   });
-  const elementImage = cardElement.querySelector('.element__image');
+  
   const imageCardPopup = document.querySelector('.image-card');
 
   // Передаем значения карточки в попап просмотра картинки
@@ -103,6 +112,7 @@ function createCard(cardName, cardLink) {
     const popupCaption = imageCardItem.querySelector('.image-card__caption');
     popupCaption.textContent = cardName;
     popupImage.src = cardLink;
+    popupImage.alt = cardName;
     imageCardPopup.classList.add('image-card_opened');
     })
     
@@ -111,17 +121,17 @@ function createCard(cardName, cardLink) {
 
 // Вставляем карточку вначало списка
 function renderCard(card) {
-  elements.prepend(card);
+  elementContainer.prepend(card);
 }
 
 // Открытие попапа для добавления новой карточки
-function addClickButton() {
+function openPopupAddCard() {
   popupElement.classList.add('popup_opened');
 }
-addButton.addEventListener('click', addClickButton);
+cardAddButton.addEventListener('click', openPopupAddCard);
 
 // Закрытие попапа добавление карточки на крестик
-closeIconElement.addEventListener('click', function() {
+iconCloseElement.addEventListener('click', function() {
   popupElement.classList.remove('popup_opened');
 });
 
@@ -135,26 +145,12 @@ closeIconElement.addEventListener('click', function() {
     let newcard = createCard(photoTitleInput, photoLinkInput);
     renderCard(newcard);
     evt.target.reset ();
+    popupElement.classList.remove('popup_opened');
   }
   formElement.addEventListener('submit', handleAddCardClick);
   
-  
-  function submitFormElement() {
-    popupElement.classList.remove('popup_opened');
-  }
-  submitElement.addEventListener('click', submitFormElement);
 
-  // Попап картинки
-  const imageCardPopup = document.querySelector('.image-card');
-  const imageCardItem = imageCardPopup.querySelector('.image-card__item');
-  const popupImage = imageCardItem.querySelector('.image-card__image');
-  const popupCaption = imageCardItem.querySelector('.image-card__caption');
-  const closeIconImage = imageCardItem.querySelector('.popup__close-icone_image');
-  const elementImage = elements.querySelector('.element__image');
-  
-
-
-  closeIconImage.addEventListener('click', function() {
+  iconCloseImage.addEventListener('click', function() {
     imageCardPopup.classList.remove('image-card_opened');
 });
  
