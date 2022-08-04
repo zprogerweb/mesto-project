@@ -27,22 +27,22 @@ const initialCards = [
 
 //Кнопка редактирования профиля
 const buttonEditProfile = document.querySelector('.profile__edit-button');
-const iconCloseProfile = document.querySelector('.popup__close-icone_profile');
-const formProfile = document.querySelector('.popup__form_profile');
-const popupProfile = document.querySelector('.popup__profile');
+const iconCloseProfile = document.querySelector('.popup__close-icone_type_profile');
+const formProfile = document.querySelector('.popup__form_type_profile');
+const popupProfile = document.querySelector('.popup_type_profile');
 // Кнопка добавления карточки
 const elementContainer = document.querySelector('.elements');
 const cardAddButton = document.querySelector('.profile__add-button');
-const iconCloseElement = document.querySelector('.popup__close-icone_element');
-const popupElement = document.querySelector('.popup__element');
-const formElement = document.querySelector('.popup__form_element');
+const iconCloseElement = document.querySelector('.popup__close-icone_type_element');
+const popupElement = document.querySelector('.popup_type_element');
+const formElement = document.querySelector('.popup__form_type_element');
 const elementSubmitButton = formElement.querySelector('.popup__submit-button');
 // Попап картинки
 const imageCardPopup = document.querySelector('.image-card');
 const imageCardItem = imageCardPopup.querySelector('.image-card__item');
 const popupImage = imageCardItem.querySelector('.image-card__image');
 const popupCaption = imageCardItem.querySelector('.image-card__caption');
-const iconCloseImage = imageCardItem.querySelector('.popup__close-icone_image');
+const iconCloseImage = imageCardItem.querySelector('.popup__close-icone_type_image');
 const elementImage = elementContainer.querySelector('.element__image');
 
 
