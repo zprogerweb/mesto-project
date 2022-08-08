@@ -47,7 +47,7 @@ const elementImage = elementContainer.querySelector('.element__image');
 
 
 
-buttonEditProfile.addEventListener('click', () => openPopup(popupProfile)); // Открытие попапа для редактирования профиля
+buttonEditProfile.addEventListener('click', () => openPopupProfile(popupProfile)); // Открытие попапа для редактирования профиля
 iconCloseProfile.addEventListener('click', () => closePopup(popupProfile));
 
 cardAddButton.addEventListener('click', () => openPopup(popupElement)); // Открытие попапа для добавления новой карточки
@@ -59,15 +59,17 @@ iconCloseImage.addEventListener('click', () => closePopup(imageCardPopup));
 function openPopup(popup) { //  открываем попап
   popup.classList.add('popup_opened');
 };
+
 function closePopup(popup) { // закрываем попап 
   popup.classList.remove('popup_opened');
 };
 
-function openPopup(popupProfile) { 
+function openPopupProfile(popupProfile) { //  открываем попап profile
   popupProfile.classList.add('popup_opened');
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
 };
+
  
 const nameInput = formProfile.querySelector('.popup__field_type_name');
 const jobInput = formProfile.querySelector('.popup__field_type_about');
